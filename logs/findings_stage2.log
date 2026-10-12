@@ -1,0 +1,95 @@
+nohup: ignoring input
+[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.
+[Parallel(n_jobs=4)]: Done  10 tasks      | elapsed:  2.6min
+[Parallel(n_jobs=4)]: Done  64 tasks      | elapsed: 17.4min
+[Parallel(n_jobs=4)]: Done 154 tasks      | elapsed: 49.7min
+[Parallel(n_jobs=4)]: Done 260 out of 260 | elapsed: 100.8min finished
+                         cfg_id  cka_mean  cka_resid_mean
+0    w128_d3_r5_g1_mean_k16_sum  0.943225        0.942734
+3    w128_d3_r6_g0.5_sum_k8_sum  0.999189        0.987457
+6    w128_d4_r6_g1_mean_k16_sum  0.973137        0.971818
+9   w32_d1_r5_g0.5_max_k16_mean  0.637967        0.634618
+12     w32_d1_r5_g1_max_k32_sum  0.492549        0.440134
+15    w32_d3_r5_g1_mean_k16_sum  0.834373        0.832303
+18   w32_d6_r5_g1_mean_k16_mean  0.876991        0.946468
+21    w64_d1_r4_g2_sum_k32_mean  0.993474        0.959373
+24    w64_d1_r5_g1_mean_k16_sum  0.864252        0.879534
+27    w64_d2_r5_g1_mean_k16_sum  0.843628        0.846503
+                                     0                    1                     2
+pair                      egnn_x_gnina  egnn_x_distance_gnn  gnina_x_distance_gnn
+matched_floor                 0.172359             0.905953              0.190347
+matched_lo                    0.063563             0.891391              0.058597
+matched_hi                    0.310536             0.929967              0.335203
+mismatched                    0.171653             0.900379              0.190003
+matched_minus_mismatched      0.000706             0.005574              0.000344
+mm_lo                        -0.002301             0.001858             -0.001964
+mm_hi                         0.002661             0.013196              0.001614
+floor_resid                   0.138675             0.909898              0.154841
+floor_resid_lo                0.036759             0.887618              0.033863
+floor_resid_hi                0.271884             0.935535              0.294302
+resid_minus_raw              -0.033684             0.003945             -0.035506
+rr_lo                        -0.072514            -0.012342              -0.07446
+rr_hi                         0.010394             0.020336              0.013436
+                      cfg_id                  condition  matched_cross_cka     ci_lo     ci_hi  delta_vs_none  delta_ci_lo  delta_ci_hi
+0  w64_d3_r5_g1_mean_k16_sum                       none           0.899013  0.879906  0.924614       0.000000          NaN          NaN
+1  w64_d3_r5_g1_mean_k16_sum              shuffle_types           0.872892  0.844251  0.921954      -0.026121    -0.044322     0.003906
+2  w64_d3_r5_g1_mean_k16_sum  shuffle_types_within_role           0.877566  0.854144  0.918127      -0.021447    -0.033191    -0.003170
+3  w64_d3_r5_g1_mean_k16_sum              random_coords           0.976624  0.974106  0.979204       0.077610     0.052603     0.094822
+                                  0            1                    2
+response                      cross  within_egnn  within_distance_gnn
+n_configs                        27           27                   27
+y_mean                     0.879545     0.872083              0.87176
+y_sd                       0.120592     0.126227             0.138286
+r2_M2                      0.145435     0.141685             0.139022
+r2_M2_ci_lo               -0.428802    -0.421421             -0.54478
+r2_M2_ci_hi                0.474661     0.471645             0.414516
+kernels_predict_floor         False        False                False
+r2_M3_minus_M1             -0.04925    -0.082155            -0.012274
+inc_ci_lo                 -0.182506    -0.218644            -0.115301
+inc_ci_hi                  0.020841    -0.002745             0.058911
+kernels_add_beyond_config     False        False                False
+best_single_kernel             size         size                 size
+           model               target   trained  reference reference_is      gain   gain_lo   gain_hi       verdict
+0           egnn             affinity  0.343061   0.293375       kernel  0.049686 -0.015026  0.122107  inconclusive
+2   distance_gnn             affinity  0.237285   0.293375       kernel -0.056090 -0.134386  0.037599       no_gain
+4          gnina             affinity  0.245733   0.293375       kernel -0.047642 -0.142220  0.054081  inconclusive
+6           egnn   ligand_heavy_atoms  0.897803   1.000000       kernel -0.102197 -0.128670 -0.087024       no_gain
+8   distance_gnn   ligand_heavy_atoms  0.762933   1.000000       kernel -0.237067 -0.310949 -0.206553       no_gain
+10         gnina   ligand_heavy_atoms  0.697206   1.000000       kernel -0.302794 -0.446570 -0.217235       no_gain
+12          egnn        complex_atoms  0.771330   1.000000       kernel -0.228670 -0.277977 -0.179945       no_gain
+14  distance_gnn        complex_atoms  0.215897   1.000000       kernel -0.784103 -0.914111 -0.658562       no_gain
+16         gnina        complex_atoms  0.836416   1.000000       kernel -0.163584 -0.230911 -0.114757       no_gain
+18          egnn             contacts  0.843167   0.756786    untrained  0.086381  0.055589  0.134613          gain
+20  distance_gnn             contacts  0.633699   0.732033    untrained -0.098334 -0.183625 -0.036317       no_gain
+22         gnina             contacts  0.316554   0.532552       kernel -0.215999 -0.351244 -0.122144       no_gain
+24          egnn  pocket_volume_proxy  0.678554   0.973902       kernel -0.295349 -0.363171 -0.235134       no_gain
+26  distance_gnn  pocket_volume_proxy  0.051014   0.973902       kernel -0.922888 -1.081240 -0.776011       no_gain
+28         gnina  pocket_volume_proxy  0.650307   0.973902       kernel -0.323596 -0.409218 -0.238454       no_gain
+30          egnn      buried_fraction  0.332749   0.579574    untrained -0.246824 -0.299767 -0.172879       no_gain
+32  distance_gnn      buried_fraction  0.479946   0.586949    untrained -0.107004 -0.148094 -0.055837       no_gain
+34         gnina      buried_fraction -0.006076   0.135755       kernel -0.141831 -0.300514 -0.073020       no_gain
+36          egnn    pocket_polar_frac  0.988631   0.999272    untrained -0.010642 -0.015029 -0.008547       no_gain
+38  distance_gnn    pocket_polar_frac  0.981459   0.999197    untrained -0.017738 -0.025894 -0.013472       no_gain
+40         gnina    pocket_polar_frac -0.311414   0.985731       kernel -1.297146 -1.553293 -1.177108       no_gain
+42          egnn      rotatable_bonds  0.483873   0.448325       kernel  0.035548 -0.058879  0.080937  inconclusive
+44  distance_gnn      rotatable_bonds  0.232423   0.448325       kernel -0.215902 -0.389240 -0.093357       no_gain
+46         gnina      rotatable_bonds  0.124538   0.448325       kernel -0.323787 -0.580208 -0.146237       no_gain
+48          egnn        ligand_charge  0.061775   0.087017    untrained -0.025242 -0.082736  0.019980       no_gain
+50  distance_gnn        ligand_charge  0.041730   0.110575    untrained -0.068845 -0.129005 -0.010918       no_gain
+52         gnina        ligand_charge -0.070935   0.022650       kernel -0.093585 -0.196295 -0.006534       no_gain
+                    pair                    statistic     value     ci_lo     ci_hi
+0           egnn_x_gnina                 pred_pearson  0.861582  0.820986  0.903745
+1           egnn_x_gnina                resid_pearson  0.918929  0.902584  0.930484
+2           egnn_x_gnina  resid_pearson_size_adjusted  0.918691  0.901482  0.930861
+3           egnn_x_gnina         pred_partial_given_y  0.791122  0.762246  0.826953
+4           egnn_x_gnina                pred_spearman  0.857625       NaN       NaN
+5    egnn_x_distance_gnn                 pred_pearson  0.819270  0.793281  0.848249
+6    egnn_x_distance_gnn                resid_pearson  0.899901  0.875044  0.919322
+7    egnn_x_distance_gnn  resid_pearson_size_adjusted  0.905974  0.880985  0.923316
+8    egnn_x_distance_gnn         pred_partial_given_y  0.745647  0.708012  0.778105
+9    egnn_x_distance_gnn                pred_spearman  0.807721       NaN       NaN
+10  gnina_x_distance_gnn                 pred_pearson  0.830220  0.805644  0.848637
+11  gnina_x_distance_gnn                resid_pearson  0.917278  0.888459  0.936886
+12  gnina_x_distance_gnn  resid_pearson_size_adjusted  0.922436  0.896111  0.938396
+13  gnina_x_distance_gnn         pred_partial_given_y  0.763999  0.712574  0.796449
+14  gnina_x_distance_gnn                pred_spearman  0.833372       NaN       NaN

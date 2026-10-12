@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+# derived from PDBbind (per-complex labels and features); regenerate with the scripts, do not commit
+findings_out/targets.tsv
+findings_out/kernels.npz
+findings_out/graphs_failed.txt
+data/
+PDBbind_2020/
+reference_logs/
+paper_analysis/generated/
+findings_out/ledger.tsv
+findings/plan/findings_plan.lock.json
+findings/plan/freeze.json

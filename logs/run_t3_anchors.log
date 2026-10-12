@@ -1,0 +1,72 @@
+[prereg] lock OK (rev 4, config 1937b13f4f5f)
+device: cuda | global seed: 20260919 | anchor seed: 20260923
+split: {'train': 7393, 'test': 2171, 'val': 958} | PDBbind dirs: 19443
+Precomputing graph cache ...
+  train: 7393 ok, 0 failed
+  val: 958 ok, 0 failed
+  test: 2171 ok, 0 failed
+
+=== T3: anchor training ===
+
+--- egnn, anchor seed 20260923 ---
+[egnn/anchor] already finished (is_best=True, epoch 29, best_val_loss=2.2323) -- skipping
+
+--- distance_gnn, anchor seed 20260923 ---
+[distance_gnn/anchor] already finished (is_best=True, epoch 64, best_val_loss=2.3586) -- skipping
+[egnn/primary] loaded from egnn_primary.pt (epoch 65, is_best=True)
+[egnn/untrained] loaded from egnn_untrained.pt (epoch 0, is_best=MISSING)
+[distance_gnn/primary] loaded from distance_gnn_primary.pt (epoch 49, is_best=True)
+[distance_gnn/untrained] loaded from distance_gnn_untrained.pt (epoch 0, is_best=MISSING)
+
+=== T4a: Table 1 gate ===
+egnn           primary    val_loss=2.0594 r=0.600 rmse=1.435
+egnn           untrained  val_loss=54.0054 r=-0.330 rmse=7.349
+egnn           anchor     val_loss=2.2323 r=0.560 rmse=1.494
+  GATE (egnn, primary): r=0.600 vs untrained=-0.330 -> PASS
+  GATE (egnn, anchor):  r=0.560 -> PASS
+distance_gnn   primary    val_loss=2.4177 r=0.510 rmse=1.555
+distance_gnn   untrained  val_loss=50.4374 r=-0.199 rmse=7.102
+distance_gnn   anchor     val_loss=2.3586 r=0.539 rmse=1.536
+  GATE (distance_gnn, primary): r=0.510 vs untrained=-0.199 -> PASS
+  GATE (distance_gnn, anchor):  r=0.539 -> PASS
+appended to logs/table1_performance.tsv
+
+=== T4b: invariance test ===
+[egnn] rotation+translation invariance float64: max|diff|=1.85e-13 -> PASS
+[distance_gnn] rotation+translation invariance float64: max|diff|=3.55e-15 -> PASS
+
+=== T4c: extraction ===
+egnn/anchor/train              shape=(7393, 64) sha256=6c5c17226e2e
+egnn/anchor/val                shape=(958, 64) sha256=8c211fc6726c
+egnn/anchor/test               shape=(2171, 64) sha256=f5a6a409ed7b
+distance_gnn/anchor/train      shape=(7393, 64) sha256=31c5fad89ca6
+distance_gnn/anchor/val        shape=(958, 64) sha256=cc261d2780f2
+distance_gnn/anchor/test       shape=(2171, 64) sha256=41242a91b3aa
+egnn/primary/train             shape=(7393, 64) sha256=bed0c6c75cbe
+egnn/primary/val               shape=(958, 64) sha256=fa366c8cb09a
+egnn/primary/test              shape=(2171, 64) sha256=ad33632cdd70
+egnn/untrained/train           shape=(7393, 64) sha256=562de1e45d70
+egnn/untrained/val             shape=(958, 64) sha256=ef6358e07345
+egnn/untrained/test            shape=(2171, 64) sha256=1d94114853a0
+distance_gnn/primary/train     shape=(7393, 64) sha256=6f84b48e513c
+distance_gnn/primary/val       shape=(958, 64) sha256=5310d0b0277e
+distance_gnn/primary/test      shape=(2171, 64) sha256=268701a217ab
+distance_gnn/untrained/train   shape=(7393, 64) sha256=55aabe0e34a8
+distance_gnn/untrained/val     shape=(958, 64) sha256=bc30d6443f0e
+distance_gnn/untrained/test    shape=(2171, 64) sha256=7423a6ceef74
+wrote logs/embeddings_manifest.json
+
+=== T4d: health check ===
+egnn/anchor: PR=1.23 dead=0.0% cov_R2=0.660
+distance_gnn/anchor: PR=1.46 dead=0.0% cov_R2=0.390
+egnn/primary: PR=1.28 dead=0.0% cov_R2=0.545
+egnn/untrained: PR=2.38 dead=0.0% cov_R2=0.275
+distance_gnn/primary: PR=1.13 dead=0.0% cov_R2=0.411
+distance_gnn/untrained: PR=1.60 dead=0.0% cov_R2=0.200
+
+=== T4e: commit ===
+fatal: not a git repository (or any parent up to mount point /home/ec2-user)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+
+=== T3/T4 complete ===
+Next: run run_t5_untrained_inits.py, then switch instance to ml.m5.4xlarge.

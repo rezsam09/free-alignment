@@ -1,0 +1,97 @@
+# findings_plan.yaml -- analysis plan for the Findings paper (floor sweep + probe panel + training effects).
+# EDIT THIS, THEN `python findings/lock_freeze.py lock`. After locking, any change aborts every script.
+# Every value below is a pre-specified choice; nothing is tuned on results.
+eval_split: test
+train_split: train
+split_file: data/splits/split_v1.tsv
+split_column: split
+affinity_column: value
+cluster_file: data/clusters.tsv
+cluster_col: cluster_id
+max_unclustered_frac: 0.02
+covariates_file: data/covariates.tsv
+pdbbind_dir: PDBbind_2020
+pca_dim: 64                 # CKA / kNN / Procrustes on real embeddings: train-fit PCA-64 (as for the reference models)
+seed: 20261010
+n_boot: 1000
+ci_level: 0.95
+
+graphs:
+  splits: [train, test]
+  elements: [C, N, O, S, P, F, Cl, Br, I]      # everything else -> an extra "other" slot
+  pocket_file: "{pid}_pocket.pdb"
+  ligand_file: "{pid}_ligand.sdf"
+  contact_cutoff: 4.5
+  buried_min_neighbors: 1                      # ligand atom counts as buried if >= this many pocket atoms within contact_cutoff
+
+kernels:                                       # A2 input-geometry baselines (feature maps; linear CKA on them)
+  distance_hist: {n_bins: 20, max_dist: 12.0}  # histogram of all intra-complex pair distances (normalised)
+  degree: {radius: 5.0, n_bins: 12, max_degree: 60}   # histogram of per-atom neighbour counts within radius (normalised; counts above max_degree fall in the last bin)
+
+sweep:                                         # A1 random-network grid (numpy forward-only re-implementations)
+  n_complexes: 1200                            # null = whole core set; an int = fixed random subset (seeded) to cut cost
+  dtype: float32
+  n_seeds: 5
+  base: {width: 64, depth: 3, radius: 5.0, gain: 1.0, readout: mean, n_rbf: 16, aggr: sum}
+  vary:                                        # one-factor-at-a-time around base ...
+    width: [32, 128]
+    depth: [1, 2, 4, 6]
+    radius: [4.0, 6.0, 8.0]
+    gain: [0.5, 2.0]
+    readout: [sum, max]
+    n_rbf: [8, 32]
+    aggr: [mean]
+  n_random: 10                                 # ... plus this many random configs drawn from {base values} U {vary values}
+  extra_configs: []                            # e.g. the config that mirrors your trained models
+  pca_k: 64                                    # width > pca_k -> PCA-k fit on the evaluation set itself (label-free; declared deviation)
+  knn_k: 10
+  resid_degree: 1                              # A5: residualise embeddings on the 2 covariates (polynomial degree)
+  n_jobs: 4
+
+ablation:                                      # A4
+  configs: [base]                              # "base" or explicit list of config ids printed by a1_floor_sweep.py
+  kinds: [shuffle_types, shuffle_types_within_role, random_coords]
+  n_boot: 200
+
+floor_model:                                   # A3
+  responses: [cross, within_egnn, within_distance_gnn]
+  alpha: 1.0                                   # fixed ridge penalty on standardised predictors (not tuned)
+  cv_folds: 5
+  cv_repeats: 20
+  min_configs: 25
+  success_r2: 0.5                              # PRE-REGISTERED threshold: held-out R2 of the kernels+config model
+  increment_r2: 0.1                            # ... and its gain over the config-only model
+  n_boot: 1000
+
+real_untrained:                                # A5 / A6 / A7 on the existing untrained embeddings
+  resid_degree: 1
+  n_init: 5
+
+targets:
+  specs:
+    affinity:            {source: split, type: continuous}
+    ligand_heavy_atoms:  {source: graph, type: continuous}
+    complex_atoms:       {source: graph, type: continuous}
+    contacts:            {source: graph, type: continuous}
+    pocket_volume_proxy: {source: graph, type: continuous}
+    buried_fraction:     {source: graph, type: continuous}
+    pocket_polar_frac:   {source: graph, type: continuous}
+    rotatable_bonds:     {source: graph, type: continuous}
+    ligand_charge:       {source: graph, type: continuous}
+
+probe:
+  dims: [32, 64, 128, full]
+  full_max_dim: 512
+  alphas: [0.01, 0.1, 1, 10, 100, 1000]
+  folds: 5
+  inner_folds: 3
+  n_perm: 50                                   # shuffled-target null
+  control_k: 40                                # random-label control: random value per k-means cell of the probe input
+  mlp: {hidden: 64, max_iter: 300, alpha: 0.001, seed: 0}
+  untrained_agg: mean                          # untrained reference of a model = mean over its 5 inits
+  margin: {continuous: 0.05, binary: 0.03}     # reading rule: gain if CI_low > margin; none if CI_high < margin; else inconclusive
+  min_n: 200
+
+agreement:                                     # C3
+  pred_pattern: "{model}_primary_test_pred.npy"
+  resid_degree: 1

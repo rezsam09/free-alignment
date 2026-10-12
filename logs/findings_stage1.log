@@ -1,0 +1,13 @@
+nohup: ignoring input
+{'size': (9564, 2), 'composition': (9564, 20), 'dist_hist': (9564, 20), 'degree': (9564, 9)}
+                           type n_valid n_total
+affinity             continuous    2171    2171
+ligand_heavy_atoms   continuous    2171    2171
+complex_atoms        continuous    2171    2171
+contacts             continuous    2171    2171
+pocket_volume_proxy  continuous    2171    2171
+buried_fraction      continuous    2171    2171
+pocket_polar_frac    continuous    2171    2171
+rotatable_bonds      continuous    2171    2171
+ligand_charge        continuous    2171    2171
+1200 complexes, 27 configs, 260 unique networks; base net 40.9s -> ~0.7 h on 4 workers (deeper/wider configs cost more)

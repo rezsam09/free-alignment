@@ -1,0 +1,2 @@
+ERROR: mmseqs2 not found in PATH.
+Install with: conda install -c bioconda mmseqs2

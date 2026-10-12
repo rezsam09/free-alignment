@@ -1,0 +1,231 @@
+{
+  "reference_kernel": {
+    "tanimoto": {
+      "egnn_x_gnina": {
+        "cka_raw": 0.6435,
+        "cka_resid": 0.2982,
+        "delta_cka": 0.3453,
+        "n_valid": 1862,
+        "n_dropped": 309,
+        "n_ref_components": 100,
+        "ref_variance_kept": 0.4647,
+        "ref_r2_embedding_A": 0.654,
+        "ref_r2_embedding_B": 0.4907,
+        "method": "feature_space_projection_off_reference_kernel_basis"
+      },
+      "egnn_x_distance_gnn": {
+        "cka_raw": 0.4854,
+        "cka_resid": 0.2241,
+        "delta_cka": 0.2613,
+        "n_valid": 1862,
+        "n_dropped": 309,
+        "n_ref_components": 100,
+        "ref_variance_kept": 0.4647,
+        "ref_r2_embedding_A": 0.654,
+        "ref_r2_embedding_B": 0.5503,
+        "method": "feature_space_projection_off_reference_kernel_basis"
+      },
+      "gnina_x_distance_gnn": {
+        "cka_raw": 0.5064,
+        "cka_resid": 0.1739,
+        "delta_cka": 0.3325,
+        "n_valid": 1862,
+        "n_dropped": 309,
+        "n_ref_components": 100,
+        "ref_variance_kept": 0.4647,
+        "ref_r2_embedding_A": 0.4907,
+        "ref_r2_embedding_B": 0.5503,
+        "method": "feature_space_projection_off_reference_kernel_basis"
+      }
+    },
+    "aa_comp": {
+      "egnn_x_gnina": {
+        "cka_raw": 0.6435,
+        "cka_resid": 0.6318,
+        "delta_cka": 0.0117,
+        "n_valid": 1862,
+        "n_dropped": 309,
+        "n_ref_components": 17,
+        "ref_variance_kept": 0.9602,
+        "ref_r2_embedding_A": 0.1911,
+        "ref_r2_embedding_B": 0.1913,
+        "method": "feature_space_projection_off_reference_kernel_basis"
+      },
+      "egnn_x_distance_gnn": {
+        "cka_raw": 0.4854,
+        "cka_resid": 0.497,
+        "delta_cka": -0.0116,
+        "n_valid": 1862,
+        "n_dropped": 309,
+        "n_ref_components": 17,
+        "ref_variance_kept": 0.9602,
+        "ref_r2_embedding_A": 0.1911,
+        "ref_r2_embedding_B": 0.1331,
+        "method": "feature_space_projection_off_reference_kernel_basis"
+      },
+      "gnina_x_distance_gnn": {
+        "cka_raw": 0.5064,
+        "cka_resid": 0.4807,
+        "delta_cka": 0.0257,
+        "n_valid": 1862,
+        "n_dropped": 309,
+        "n_ref_components": 17,
+        "ref_variance_kept": 0.9602,
+        "ref_r2_embedding_A": 0.1913,
+        "ref_r2_embedding_B": 0.1331,
+        "method": "feature_space_projection_off_reference_kernel_basis"
+      }
+    }
+  },
+  "covariate_residualization": {
+    "egnn_x_gnina": {
+      "per_cov": {
+        "complex_atom_count": {
+          "cka_resid": 0.4368,
+          "delta": 0.2045
+        },
+        "ligand_heavy_atom_count": {
+          "cka_resid": 0.242,
+          "delta": 0.3992
+        },
+        "_joint": {
+          "cka_resid": 0.1869,
+          "delta": 0.4543
+        }
+      },
+      "vif": {
+        "complex_atom_count": 1.47,
+        "ligand_heavy_atom_count": 1.47
+      },
+      "pre_pca": {
+        "complex_atom_count": {
+          "cka_resid": 0.4368,
+          "delta": 0.2045
+        },
+        "ligand_heavy_atom_count": {
+          "cka_resid": 0.242,
+          "delta": 0.3992
+        },
+        "_joint": {
+          "cka_resid": 0.1869,
+          "delta": 0.4543
+        }
+      },
+      "pre_pca_note": "RAW embeddings OLS-residualized within each split, then PCA-64 fit on train residuals"
+    },
+    "egnn_x_distance_gnn": {
+      "per_cov": {
+        "complex_atom_count": {
+          "cka_resid": 0.4735,
+          "delta": 0.0169
+        },
+        "ligand_heavy_atom_count": {
+          "cka_resid": 0.218,
+          "delta": 0.2724
+        },
+        "_joint": {
+          "cka_resid": 0.257,
+          "delta": 0.2335
+        }
+      },
+      "vif": {
+        "complex_atom_count": 1.47,
+        "ligand_heavy_atom_count": 1.47
+      },
+      "pre_pca": {
+        "complex_atom_count": {
+          "cka_resid": 0.4735,
+          "delta": 0.0169
+        },
+        "ligand_heavy_atom_count": {
+          "cka_resid": 0.218,
+          "delta": 0.2724
+        },
+        "_joint": {
+          "cka_resid": 0.257,
+          "delta": 0.2335
+        }
+      },
+      "pre_pca_note": "RAW embeddings OLS-residualized within each split, then PCA-64 fit on train residuals"
+    },
+    "gnina_x_distance_gnn": {
+      "per_cov": {
+        "complex_atom_count": {
+          "cka_resid": 0.4584,
+          "delta": 0.0423
+        },
+        "ligand_heavy_atom_count": {
+          "cka_resid": 0.1614,
+          "delta": 0.3394
+        },
+        "_joint": {
+          "cka_resid": 0.1925,
+          "delta": 0.3082
+        }
+      },
+      "vif": {
+        "complex_atom_count": 1.47,
+        "ligand_heavy_atom_count": 1.47
+      },
+      "pre_pca": {
+        "complex_atom_count": {
+          "cka_resid": 0.4584,
+          "delta": 0.0423
+        },
+        "ligand_heavy_atom_count": {
+          "cka_resid": 0.1614,
+          "delta": 0.3394
+        },
+        "_joint": {
+          "cka_resid": 0.1925,
+          "delta": 0.3082
+        }
+      },
+      "pre_pca_note": "RAW embeddings OLS-residualized within each split, then PCA-64 fit on train residuals"
+    }
+  },
+  "zero_aa_flag": {
+    "n_zero_in_core": 309,
+    "n_core": 2171,
+    "fraction": 0.1423,
+    "action": "dropped"
+  },
+  "low_sim_nab": {
+    "egnn_x_gnina": {
+      "n_lowsim": 928,
+      "floor": 0.215,
+      "ceiling": 0.6301,
+      "obs_cka": 0.5469,
+      "denom": 0.4151,
+      "n_ab": 0.799627,
+      "n_floor_inits": 5,
+      "status": "ok"
+    },
+    "egnn_x_distance_gnn": {
+      "n_lowsim": 928,
+      "floor": 0.9035,
+      "ceiling": 0.6301,
+      "obs_cka": 0.4009,
+      "denom": -0.2734,
+      "n_ab": null,
+      "n_floor_inits": 5,
+      "status": "undefined: denom < 0.05"
+    },
+    "gnina_x_distance_gnn": {
+      "n_lowsim": 928,
+      "floor": 0.232,
+      "ceiling": 0.9243,
+      "obs_cka": 0.4525,
+      "denom": 0.6923,
+      "n_ab": 0.31838,
+      "n_floor_inits": 5,
+      "status": "ok"
+    }
+  },
+  "_meta": {
+    "method": "per_tag_train_pca64; strict alignment; zero/NaN reference rows dropped; reference kernels partialled out in feature space (95% variance, <= 100 comps)",
+    "deviations": [
+      "CKA on per-tag train-fit PCA-64, retained for computational cost (GNINA is 27,648-d; 10k permutation/bootstrap draws); config says cka mean_center_only"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+[prereg] lock OK (rev 4, config 1937b13f4f5f)
+untrained init seeds: [20260924, 20260925, 20260926, 20260927]
+  train: 7393 complexes
+  val: 958 complexes
+  test: 2171 complexes
+
+=== T5: EGNN + Distance-GNN untrained inits 2-5 ===
+[egnn/untrained_init2] model instantiated, checkpoint -> egnn_untrained_init2.pt
+  egnn/untrained_init2/train          shape=(7393, 64) sha256=edc5ca1e71db
+  egnn/untrained_init2/val            shape=(958, 64) sha256=38a0c5bfb17b
+  egnn/untrained_init2/test           shape=(2171, 64) sha256=16540dd746a8
+[distance_gnn/untrained_init2] model instantiated, checkpoint -> distance_gnn_untrained_init2.pt
+  distance_gnn/untrained_init2/train  shape=(7393, 64) sha256=79afa053cbf0
+  distance_gnn/untrained_init2/val    shape=(958, 64) sha256=fe731c77af2f
+  distance_gnn/untrained_init2/test   shape=(2171, 64) sha256=9af5216b96ae
+[egnn/untrained_init3] model instantiated, checkpoint -> egnn_untrained_init3.pt
+  egnn/untrained_init3/train          shape=(7393, 64) sha256=42af1b440d6f
+  egnn/untrained_init3/val            shape=(958, 64) sha256=99c6ac1335e2
+  egnn/untrained_init3/test           shape=(2171, 64) sha256=01f1543cee55
+[distance_gnn/untrained_init3] model instantiated, checkpoint -> distance_gnn_untrained_init3.pt
+  distance_gnn/untrained_init3/train  shape=(7393, 64) sha256=ffba54004b22
+  distance_gnn/untrained_init3/val    shape=(958, 64) sha256=0c8eca40b3da
+  distance_gnn/untrained_init3/test   shape=(2171, 64) sha256=e6870a74e26f
+[egnn/untrained_init4] model instantiated, checkpoint -> egnn_untrained_init4.pt
+  egnn/untrained_init4/train          shape=(7393, 64) sha256=fcd605ae6885
+  egnn/untrained_init4/val            shape=(958, 64) sha256=3ceb5822cd1d
+  egnn/untrained_init4/test           shape=(2171, 64) sha256=7f98e005602f
+[distance_gnn/untrained_init4] model instantiated, checkpoint -> distance_gnn_untrained_init4.pt
+  distance_gnn/untrained_init4/train  shape=(7393, 64) sha256=fd054c7aaeff
+  distance_gnn/untrained_init4/val    shape=(958, 64) sha256=4da5d8441725
+  distance_gnn/untrained_init4/test   shape=(2171, 64) sha256=75d512ead87c
+[egnn/untrained_init5] model instantiated, checkpoint -> egnn_untrained_init5.pt
+  egnn/untrained_init5/train          shape=(7393, 64) sha256=859dd994aba8
+  egnn/untrained_init5/val            shape=(958, 64) sha256=33137a62a779
+  egnn/untrained_init5/test           shape=(2171, 64) sha256=12ddd3799398
+[distance_gnn/untrained_init5] model instantiated, checkpoint -> distance_gnn_untrained_init5.pt
+  distance_gnn/untrained_init5/train  shape=(7393, 64) sha256=48bbcb6ee0b6
+  distance_gnn/untrained_init5/val    shape=(958, 64) sha256=78af7aff2a35
+  distance_gnn/untrained_init5/test   shape=(2171, 64) sha256=daf724ace2de
+updated embeddings_manifest.json (EGNN/DNN inits 2-5)
+
+=== T5: GNINA untrained inits 2-5 ===
+[WARN] gnina_torch/molgrid not importable: No module named 'gnina_torch'
+[SKIP] GNINA untrained inits 2-5: run after transferring gnina_types/ from Drive
+       Then re-run:  python run_t5_untrained_inits.py
+fatal: not a git repository (or any parent up to mount point /home/ec2-user)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+
+=== T5 complete ===
+All untrained baseline embeddings ready.
+Next steps after both runs complete:
+  1. Switch instance to ml.m5.4xlarge (compute-only, no GPU needed)
+  2. Run step2_dry_run notebook -> writes src/alignlib.py  (T7.5)
+  3. Proceed to T8 (CKA analysis)

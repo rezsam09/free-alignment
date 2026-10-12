@@ -1,0 +1,9 @@
+# Versions recorded in the environment freeze of the original run (numpy, scipy, scikit-learn, joblib).
+# pandas and PyYAML were conda builds and their versions are not pinned here.
+numpy==1.26.4
+scipy==1.15.2
+scikit-learn==1.7.2
+joblib==1.5.3
+pandas
+PyYAML
+matplotlib==3.10.9   # only for paper_analysis/analysis.py

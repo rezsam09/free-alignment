@@ -1,0 +1,166 @@
+[prereg] lock OK (rev 4, config 1937b13f4f5f)
+Complexes in split: 10522
+  computed: 10522   missing/skipped: 0
+Traceback (most recent call last):
+  File "/home/ec2-user/anaconda3/envs/pytorch/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'new_split'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ec2-user/SageMaker/pdbbind_data/gpu_runs/make_covariates.py", line 91, in <module>
+    train_ids = split.loc[split[SPLIT_COL] == "train"].index.tolist()
+  File "/home/ec2-user/anaconda3/envs/pytorch/lib/python3.10/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/ec2-user/anaconda3/envs/pytorch/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'new_split'
+[prereg] lock OK (rev 5, config b6924763ab7a)
+Complexes in split: 10522
+  computed: 10522   missing/skipped: 0
+
+Saved: /home/ec2-user/SageMaker/pdbbind_data/data/covariates.tsv  (10522 rows, 2 covariates)
+  mu (train):  {'ligand_heavy_atom_count': 45.16393886108481, 'complex_atom_count': 428.3534424455566}
+  sd (train):  {'ligand_heavy_atom_count': 18.3060771395963, 'complex_atom_count': 104.47083693745626}
+       ligand_heavy_atom_count  complex_atom_count
+count             10522.000000        10522.000000
+mean                 -0.037468            0.013012
+std                   0.963667            0.949129
+min                  -2.030142           -3.430177
+25%                  -0.719102           -0.635138
+50%                  -0.118209            0.025333
+75%                   0.537311            0.637944
+max                   7.966538            3.882869
+[prereg] lock OK (rev 5, config b6924763ab7a)
+Complexes in split: 10522
+  computed: 10522   missing/skipped: 0
+
+Saved: /home/ec2-user/SageMaker/pdbbind_data/data/covariates.tsv  (10522 rows, 2 covariates)
+  mu (train):  {'ligand_heavy_atom_count': 45.16393886108481, 'complex_atom_count': 428.3534424455566}
+  sd (train):  {'ligand_heavy_atom_count': 18.3060771395963, 'complex_atom_count': 104.47083693745626}
+       ligand_heavy_atom_count  complex_atom_count
+count             10522.000000        10522.000000
+mean                 -0.037468            0.013012
+std                   0.963667            0.949129
+min                  -2.030142           -3.430177
+25%                  -0.719102           -0.635138
+50%                  -0.118209            0.025333
+75%                   0.537311            0.637944
+max                   7.966538            3.882869
+[prereg] lock OK (rev 5, config b6924763ab7a)
+Complexes in split: 10522
+  computed: 10522   missing/skipped: 0
+
+Saved: /home/ec2-user/SageMaker/pdbbind_data/data/covariates.tsv  (10522 rows, 2 covariates)
+  mu (train):  {'ligand_heavy_atom_count': 45.16393886108481, 'complex_atom_count': 428.3534424455566}
+  sd (train):  {'ligand_heavy_atom_count': 18.3060771395963, 'complex_atom_count': 104.47083693745626}
+       ligand_heavy_atom_count  complex_atom_count
+count             10522.000000        10522.000000
+mean                 -0.037468            0.013012
+std                   0.963667            0.949129
+min                  -2.030142           -3.430177
+25%                  -0.719102           -0.635138
+50%                  -0.118209            0.025333
+75%                   0.537311            0.637944
+max                   7.966538            3.882869
+[prereg] lock OK (rev 5, config b6924763ab7a)
+Complexes in split: 10522
+  computed: 10522   missing/skipped: 0
+
+Saved: /home/ec2-user/SageMaker/pdbbind_data/data/covariates.tsv  (10522 rows, 2 covariates)
+  mu (train):  {'ligand_heavy_atom_count': 45.16393886108481, 'complex_atom_count': 428.3534424455566}
+  sd (train):  {'ligand_heavy_atom_count': 18.3060771395963, 'complex_atom_count': 104.47083693745626}
+       ligand_heavy_atom_count  complex_atom_count
+count             10522.000000        10522.000000
+mean                 -0.037468            0.013012
+std                   0.963667            0.949129
+min                  -2.030142           -3.430177
+25%                  -0.719102           -0.635138
+50%                  -0.118209            0.025333
+75%                   0.537311            0.637944
+max                   7.966538            3.882869
+[prereg] lock OK (rev 5, config b6924763ab7a)
+Complexes in split: 10522
+  computed: 10522   missing/skipped: 0
+
+Saved: /home/ec2-user/SageMaker/pdbbind_data/data/covariates.tsv  (10522 rows, 2 covariates)
+  mu (train):  {'ligand_heavy_atom_count': 45.16393886108481, 'complex_atom_count': 428.3534424455566}
+  sd (train):  {'ligand_heavy_atom_count': 18.3060771395963, 'complex_atom_count': 104.47083693745626}
+       ligand_heavy_atom_count  complex_atom_count
+count             10522.000000        10522.000000
+mean                 -0.037468            0.013012
+std                   0.963667            0.949129
+min                  -2.030142           -3.430177
+25%                  -0.719102           -0.635138
+50%                  -0.118209            0.025333
+75%                   0.537311            0.637944
+max                   7.966538            3.882869
+[prereg] lock OK (rev 5, config b6924763ab7a)
+Complexes in split: 10522
+  computed: 10522   missing/skipped: 0
+
+Saved: /home/ec2-user/SageMaker/pdbbind_data/data/covariates.tsv  (10522 rows, 2 covariates)
+  mu (train):  {'ligand_heavy_atom_count': 45.16393886108481, 'complex_atom_count': 428.3534424455566}
+  sd (train):  {'ligand_heavy_atom_count': 18.3060771395963, 'complex_atom_count': 104.47083693745626}
+       ligand_heavy_atom_count  complex_atom_count
+count             10522.000000        10522.000000
+mean                 -0.037468            0.013012
+std                   0.963667            0.949129
+min                  -2.030142           -3.430177
+25%                  -0.719102           -0.635138
+50%                  -0.118209            0.025333
+75%                   0.537311            0.637944
+max                   7.966538            3.882869
+[prereg] lock OK (rev 5, config b6924763ab7a)
+Complexes in split: 10522
+  computed: 10522   missing/skipped: 0
+
+Saved: /home/ec2-user/SageMaker/pdbbind_data/data/covariates.tsv  (10522 rows, 2 covariates)
+  mu (train):  {'ligand_heavy_atom_count': 45.16393886108481, 'complex_atom_count': 428.3534424455566}
+  sd (train):  {'ligand_heavy_atom_count': 18.3060771395963, 'complex_atom_count': 104.47083693745626}
+       ligand_heavy_atom_count  complex_atom_count
+count             10522.000000        10522.000000
+mean                 -0.037468            0.013012
+std                   0.963667            0.949129
+min                  -2.030142           -3.430177
+25%                  -0.719102           -0.635138
+50%                  -0.118209            0.025333
+75%                   0.537311            0.637944
+max                   7.966538            3.882869
+[prereg] lock OK (rev 5, config b6924763ab7a)
+Complexes in split: 10522
+  computed: 10522   missing/skipped: 0
+
+Saved: /home/ec2-user/SageMaker/pdbbind_data/data/covariates.tsv  (10522 rows, 2 covariates)
+  mu (train):  {'ligand_heavy_atom_count': 45.16393886108481, 'complex_atom_count': 428.3534424455566}
+  sd (train):  {'ligand_heavy_atom_count': 18.3060771395963, 'complex_atom_count': 104.47083693745626}
+       ligand_heavy_atom_count  complex_atom_count
+count             10522.000000        10522.000000
+mean                 -0.037468            0.013012
+std                   0.963667            0.949129
+min                  -2.030142           -3.430177
+25%                  -0.719102           -0.635138
+50%                  -0.118209            0.025333
+75%                   0.537311            0.637944
+max                   7.966538            3.882869
+[prereg] lock OK (rev 6, config 23ce719c4f56)
+Complexes in split: 10522
+  computed: 10522   missing/skipped: 0
+
+Saved: /home/ec2-user/SageMaker/pdbbind_data/data/covariates.tsv  (10522 rows, 2 covariates)
+  mu (train):  {'ligand_heavy_atom_count': 45.16393886108481, 'complex_atom_count': 428.3534424455566}
+  sd (train):  {'ligand_heavy_atom_count': 18.3060771395963, 'complex_atom_count': 104.47083693745626}
+       ligand_heavy_atom_count  complex_atom_count
+count             10522.000000        10522.000000
+mean                 -0.037468            0.013012
+std                   0.963667            0.949129
+min                  -2.030142           -3.430177
+25%                  -0.719102           -0.635138
+50%                  -0.118209            0.025333
+75%                   0.537311            0.637944
+max                   7.966538            3.882869

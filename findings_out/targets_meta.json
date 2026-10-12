@@ -1,0 +1,47 @@
+{
+  "affinity": {
+    "type": "continuous",
+    "n_valid": 2171,
+    "n_total": 2171
+  },
+  "ligand_heavy_atoms": {
+    "type": "continuous",
+    "n_valid": 2171,
+    "n_total": 2171
+  },
+  "complex_atoms": {
+    "type": "continuous",
+    "n_valid": 2171,
+    "n_total": 2171
+  },
+  "contacts": {
+    "type": "continuous",
+    "n_valid": 2171,
+    "n_total": 2171
+  },
+  "pocket_volume_proxy": {
+    "type": "continuous",
+    "n_valid": 2171,
+    "n_total": 2171
+  },
+  "buried_fraction": {
+    "type": "continuous",
+    "n_valid": 2171,
+    "n_total": 2171
+  },
+  "pocket_polar_frac": {
+    "type": "continuous",
+    "n_valid": 2171,
+    "n_total": 2171
+  },
+  "rotatable_bonds": {
+    "type": "continuous",
+    "n_valid": 2171,
+    "n_total": 2171
+  },
+  "ligand_charge": {
+    "type": "continuous",
+    "n_valid": 2171,
+    "n_total": 2171
+  }
+}

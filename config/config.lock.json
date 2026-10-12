@@ -1,0 +1,58 @@
+{
+  "locked_at": "2026-09-28 03:04",
+  "config_sha256": "b6924763ab7a23d5be3033537cd9be6e22ca34e2ac4ab88dade40c9c5ea182ac",
+  "frozen_files": {
+    "split": {
+      "path": "data/splits/split_v1.tsv",
+      "sha256": "50b0375ed8a63f749f39353401f23c6884a47a2ebe8d37ff34d5e8a052f798c0"
+    },
+    "requirements": {
+      "path": "reproducibility/requirements.lock.txt",
+      "sha256": "fd92e43c6f688434aa34ec13bc3c3dc4d0631321898c9e22fe5ee704f680855c"
+    }
+  },
+  "git_commit": null,
+  "revision": 8,
+  "history": [
+    {
+      "revision": 0,
+      "config_sha256": "cbcb7c257e2521016706e8d83dd755051bef93ce2cf8212dea329d62c9ecb7f9",
+      "superseded_at": "2026-09-28 03:06"
+    },
+    {
+      "revision": 1,
+      "config_sha256": "2ef8a4e8e991157b518650fbe9287d92c8b504ba9320b14c1480e8b9538c6d82",
+      "superseded_at": "2026-09-28 03:06"
+    },
+    {
+      "revision": 2,
+      "config_sha256": "975eb8f0cd06c7b9022e4a075fe4becc99d31eba23b45e60fdc1bafe3a61a928",
+      "superseded_at": "2026-09-28 03:06"
+    },
+    {
+      "revision": 3,
+      "config_sha256": "ac66641e0eb06a515b296859dc63e225ef6ffb198bbffd6612a368a67df88548",
+      "superseded_at": "2026-09-28 03:06"
+    },
+    {
+      "revision": 4,
+      "config_sha256": "1937b13f4f5f0d3e6d3fa62602af0db2184208a49a111d76db9dc100ac1731f6",
+      "superseded_at": "2026-10-04 13:10"
+    },
+    {
+      "revision": 5,
+      "config_sha256": "b6924763ab7a23d5be3033537cd9be6e22ca34e2ac4ab88dade40c9c5ea182ac",
+      "superseded_at": "2026-10-05 10:29"
+    },
+    {
+      "revision": 6,
+      "config_sha256": "23ce719c4f56916ebb79b587a3bc0b2d9e99901fa04a17b3915b4144f053fec9",
+      "superseded_at": "relock-2026-10-11-deploy"
+    },
+    {
+      "revision": 7,
+      "config_sha256": "1937b13f4f5f0d3e6d3fa62602af0db2184208a49a111d76db9dc100ac1731f6",
+      "superseded_at": "2026-10-10 17:37"
+    }
+  ]
+}
